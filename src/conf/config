@@ -1,0 +1,8 @@
+#Art-Net 
+ip:	192.168.0.91
+port:	6454
+
+#RGB-Fade
+channel_rot:	1
+channel_gruen:	2
+channel_blau:	3

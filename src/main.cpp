@@ -15,9 +15,6 @@
 using namespace std;
 
 
-
-
-
 int main()
 {
 	config configuration;
@@ -39,7 +36,7 @@ int main()
 			break;
 
 		case 2:	cout << "\nRGB-Fade";
-			mode.rgbMode(artNet);
+			mode.rgbMode(artNet, configuration);
 			break;
 	}
 }

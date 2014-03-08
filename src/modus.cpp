@@ -1,5 +1,6 @@
 
 #include "modus.h"
+
 using namespace std;
 
 void modus::manualMode(connection x)
@@ -17,12 +18,17 @@ void modus::manualMode(connection x)
 	}
 }
 
-void modus::rgbMode(connection x)
+void modus::rgbMode(connection x, config y)
 {
-	static int mode = 0;
+	int mode = 0;
 	int rot = 255;
 	int gruen = 0;
 	int blau = 0;
+
+
+	cout << "\nRot   Channel: " <<y.getChRot();
+	cout << "\nGruen Channel: " <<y.getChGruen();
+	cout << "\nBlau  Channel: " <<y.getChBlau() << "\n";
 
 	while(1)
 	{
@@ -33,9 +39,9 @@ void modus::rgbMode(connection x)
 		if(gruen == 255) mode = 1;
 		if(blau == 255) mode = 2;
 		if(rot == 255) mode = 0;
-		x.setValue(1, rot);
-		x.setValue(2, gruen);
-		x.setValue(3, blau);
+		x.setValue(y.getChRot(), rot);
+		x.setValue(y.getChGruen(), gruen);
+		x.setValue(y.getChBlau(), blau);
 		x.sendPackage();
 		for(int i = 0; i < 1E6; i++);
 	}
