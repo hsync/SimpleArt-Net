@@ -23,11 +23,16 @@ connection::connection(char *ip, int port)
 	memcpy(dat, dmx_prae, 18);
 }
 
-void connection::setValue(int channel, int value)
+void connection::setValue(unsigned int channel, unsigned int value)
 {
 	if(channel > 512 || value > 255)
 		return;
 	dat[17+channel] = value;
+}
+
+unsigned int connection::getValue(int unsigned channel)
+{
+	return dat[17+channel];
 }
 
 void connection::resetValues(void)

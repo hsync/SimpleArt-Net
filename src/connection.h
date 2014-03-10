@@ -17,11 +17,12 @@ class connection
 	private:
 	struct sockaddr_in sock_conf;
 	int sockfd;
-	char dat[PACKET_SIZE];
+	unsigned char dat[PACKET_SIZE];
 
 	public:
 	connection(char *ip, int port);
-	void setValue(int channel, int value);
+	void setValue(unsigned int channel, unsigned int value);
+	unsigned int getValue(unsigned int channel);
 	void resetValues();
 	int sendPackage(void);
 };

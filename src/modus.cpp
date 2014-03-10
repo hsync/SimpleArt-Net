@@ -9,7 +9,37 @@ void modus::manualMode(connection x)
 	int value;
 	while(1)
 	{
-		cout << "\nKanal : ";
+		cout << "\033[2J";
+		for(int i = 1; i <= 20; i++)
+		{
+			printf("\033[%d;1HCh: %d", i, i);
+			printf("\033[%d;9HValue: %d", i, x.getValue(i));
+		}
+                for(int i = 21; i <= 40; i++)
+                {
+                        printf("\033[%d;20HCh: %d", i-20, i);
+                        printf("\033[%d;28HValue: %d", i-20, x.getValue(i));
+                }
+                for(int i = 41; i <= 60; i++)
+                {
+                        printf("\033[%d;39HCh: %d", i-40, i);
+                        printf("\033[%d;47HValue: %d", i-40, x.getValue(i));
+                }
+                for(int i = 61; i <= 80; i++)
+                {
+                        printf("\033[%d;58HCh: %d", i-60, i);
+                        printf("\033[%d;66HValue: %d", i-60, x.getValue(i));
+                }
+                for(int i = 81; i <= 100; i++)
+                {
+                        printf("\033[%d;77HCh: %d", i-80, i);
+                        printf("\033[%d;85HValue: %d", i-80, x.getValue(i));
+                }
+
+
+
+
+		cout << "\n\nKanal : ";
 		cin >> channel;
 		cout << "Wert  : ";
 		cin >> value;
@@ -25,7 +55,8 @@ void modus::rgbMode(connection x, config y)
 	int gruen = 0;
 	int blau = 0;
 
-
+	cout << "\033[2J\033[1;1H";
+	cout << "RGB-Fade";
 	cout << "\nRot   Channel: " <<y.getChRot();
 	cout << "\nGruen Channel: " <<y.getChGruen();
 	cout << "\nBlau  Channel: " <<y.getChBlau() << "\n";

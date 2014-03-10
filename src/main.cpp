@@ -31,12 +31,10 @@ int main()
 
 	switch(wahl)
 	{
-		case 1:	cout << "\nManueller Modus";
-			mode.manualMode(artNet);
+		case 1:	mode.manualMode(artNet);
 			break;
 
-		case 2:	cout << "\nRGB-Fade";
-			mode.rgbMode(artNet, configuration);
+		case 2: mode.rgbMode(artNet, configuration);
 			break;
 	}
 }
