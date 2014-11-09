@@ -1,7 +1,7 @@
 SimpleArt-Net
 =============
 
-Littler Art-Net Client for Linux
+Little Art-Net Client for Linux
 ##
 
 
